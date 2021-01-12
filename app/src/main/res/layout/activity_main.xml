@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="layoutViewModel"
+            type="com.atilsamancioglu.taxcalculator.viewmodel.TaxViewModel" />
+    </data>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.MainActivity">
+
+    <EditText
+        android:id="@+id/grossIncomeText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:hint="Enter Gross Income"
+        android:inputType="numberDecimal"
+        android:textAlignment="center"
+        android:text="@={layoutViewModel.grossIncome}"
+
+        />
+
+    <EditText
+        android:id="@+id/taxRateText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="Enter Tax Rate"
+        android:inputType="numberDecimal"
+        android:textAlignment="center"
+        android:text="@={layoutViewModel.taxRate}"
+        />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calculate"
+        android:layout_margin="10dp"
+        android:onClick="@{() -> layoutViewModel.calculateTaxAndIncome()}"
+        />
+
+    <TextView
+        android:id="@+id/taxText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@{layoutViewModel.netTaxValue}"
+        android:textAlignment="center"
+        android:textSize="24sp"
+
+       />
+
+    <TextView
+        android:id="@+id/netIncomeText"
+        android:text="@{layoutViewModel.netIncomeValue}"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"/>
+</LinearLayout>
+</layout>
